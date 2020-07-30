@@ -1,0 +1,42 @@
+.title {
+  font-size: 6rem;
+  letter-spacing: 4px;
+  font-family: 'Russo One', sans-serif;;
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  transform: translate(-50%, -50%) skewY(-4deg);
+  transform-origin: bottom left;
+  color: transparent;
+  text-shadow:
+   1px -1px 10px rgba(53, 49, 49, 0.4), 
+   0px -1px 10px rgba(0, 0, 0, 0.4),  
+  -1px -1px 10px rgba(5, 5, 5, 0.4), 
+   0px -2px 3px #6b6895, 
+  -1px -2px 3px #706cb1, 
+  -2px -2px 3px #6a67ac,
+  -1px -3px 2px #716fa1, 
+  -2px -3px 2px #716f97, 
+  -3px -3px 2px #8a87be,
+  -2px -4px 2px rgb(253, 253, 253), 
+  -3px -4px 2px rgb(153, 142, 151), 
+  -4px -4px 2px #fff,
+  -3px -5px 1px #fff, 
+  -4px -5px 1px #fff, 
+  -5px -5px 1px #fff;
+}
+.title:before {
+  content: "Match Em Up!";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: skewX(30deg);
+  transform-origin: bottom left;
+  z-index: -1;
+  color: transparent;
+  text-shadow:  
+  15px 0px 20px rgba(53, 52, 52, 0.25), 
+  15px 0px 25px rgba(0, 0, 0, 0.2),
+  15px 0px 35px rgba(0, 0, 0, 0.15), 
+  15px 0px 45px rgba(0, 0, 0, 0.1);
+}
