@@ -1,31 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box, Button, Chip, Grid, } from '@material-ui/core';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+// import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
 import logo from '../styles/images/logo.png'
+import bgMusic from '../audio/Menu.mp3';
 import '../styles/Menu.css';
 
 const useStyles = makeStyles((theme) => ({
-  credits: {
-    position: 'absolute',
-    bottom: 5,
-    right: 5,
-    width: 160,
-    height: 68,
-    borderRadius: '30%',
-
-    backgroundColor: 'black',
-  },
-  ackn: {
-    color: '#5efc0b',
-    margin: 'auto',
-  },
-  large: {
-    width: theme.spacing(8),
-    height: theme.spacing(8),
-    // margin: 'auto',
-  },
   container: {
     width: '50rem',
     height: '20rem',
@@ -34,26 +18,48 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     borderColor: 'black',
     backgroundColor: 'rgba(255, 255, 255, .15)',
-    
     backdropFilter: 'blur(5px)',
+  },
+  icon: {
+    color: '#6b6895',
+  },
+  credits: {
+    position: 'absolute',
+    bottom: 5,
+    right: 5,
+    width: 160,
+    height: 68,
+    borderRadius: '30%',
+    backgroundColor: 'black',
+  },
+  large: {
+    width: theme.spacing(8),
+    height: theme.spacing(8),
   },
 }));
 
 const Menu = () => {
   const classes = useStyles();
 
+  useEffect(() => {
+    // document.getElementById('bgm').play();
+  }, [])
+
   return (
     <div className="Menu">
+      <audio src={bgMusic} id="bgm"></audio>
+
       <h4 className="title">Match Em Up!</h4>
-      <div className={classes.container}></div>
+      <div className={classes.container}>
+        <VolumeUpIcon className={classes.icon} />
+      </div>
 
       <Box className={classes.credits}>
         <Grid container justify="space-around">
           <img src={logo} className={classes.large}></img>
-          <h7 className={classes.ackn}>creation</h7>
+          <h7 className="ackn">creation</h7>
         </Grid>
       </Box>
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
     </div>
   );
 }
