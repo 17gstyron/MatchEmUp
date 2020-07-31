@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Chip, Grid, } from '@material-ui/core';
 import { makeStyles, withTheme } from '@material-ui/core/styles';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-// import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
 import logo from '../styles/images/logo.png'
 import bgMusic from '../audio/Menu.mp3';
@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
     backdropFilter: 'blur(5px)',
   },
   icon: {
-    color: '#6b6895',
+    color: '#433e55',
+    fontSize: 50,
   },
   credits: {
     position: 'absolute',
@@ -39,11 +40,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Menu = () => {
+  const [audioOn, setAudioOn] = useState(true);
   const classes = useStyles();
 
   useEffect(() => {
-    // document.getElementById('bgm').play();
-  }, [])
+    const sound =  document.getElementById('bgm');
+    if (audioOn) {
+      sound.play();
+    } else {
+      sound.pause();
+    }
+  }, [audioOn]);
+
+  const toggleAudio = () => {
+    setAudioOn(!audioOn)
+  };
 
   return (
     <div className="Menu">
@@ -51,7 +62,10 @@ const Menu = () => {
 
       <h4 className="title">Match Em Up!</h4>
       <div className={classes.container}>
-        <VolumeUpIcon className={classes.icon} />
+        { audioOn
+          ? <VolumeUpIcon className={classes.icon} onClick={toggleAudio} />
+          : <VolumeOffIcon className={classes.icon} onClick={toggleAudio} />
+        }
       </div>
 
       <Box className={classes.credits}>
