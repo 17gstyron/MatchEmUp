@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <header className="App-body">
         <Menu />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </header>
     </div>
   );
