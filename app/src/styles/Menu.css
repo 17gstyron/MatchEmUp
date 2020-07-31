@@ -25,6 +25,7 @@
   -4px -5px 1px #fff, 
   -5px -5px 1px #fff;
 }
+
 .title:before {
   content: "Match Em Up!";
   position: absolute;
@@ -39,4 +40,9 @@
   15px 0px 25px rgba(0, 0, 0, 0.2),
   15px 0px 35px rgba(0, 0, 0, 0.15), 
   15px 0px 45px rgba(0, 0, 0, 0.1);
+}
+
+.ackn {
+  color: #5efc0b;
+  margin: auto;
 }
